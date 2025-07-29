@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Chance Game - Play the Unforgettable Classic Online</title>
+    <meta name="description" content="Play the critically acclaimed One Chance Game right in your browser—make the only decision that counts before time runs out. Free, no installation required.">
+    <meta name="keywords" content="One Chance Game, flash game, indie game, decision game, play online">
+    <meta name="author" content="onechance.games">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://onechance.games/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+    <!-- Open Graph & Twitter Card -->
+    <meta property="og:title" content="One Chance Game - Official Browser Version">
+    <meta property="og:description" content="You have six days to save the world. Every choice matters in this once-in-a-lifetime experience. Play One Chance Game online.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://onechance.games/">
+    <meta property="og:site_name" content="One Chance Game">
+    <meta property="og:image" content="https://onechance.games/cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="One Chance Game - Official Browser Version">
+    <meta name="twitter:description" content="You have six days to save the world. Every choice matters in this once-in-a-lifetime experience. Play One Chance Game online.">
+    <meta name="twitter:image" content="https://onechance.games/cover.jpg">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "One Chance Game",
+      "url": "https://onechance.games/",
+      "inLanguage": "en",
+      "operatingSystem": "Browser",
+      "applicationCategory": "Game",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "2500"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <!-- Final, Cleaned Styles -->
+    <style>
+      :root {
+        --text-primary: #212529;
+        --text-secondary: #6c757d;
+        --bg-primary: #f8f9fa;
+        --bg-secondary: #ffffff;
+        --border-color: #dee2e6;
+        --accent-color: #28a745;
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.7;
+        font-size: 16px;
+      }
+      .wrapper {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+      a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      h1, h2, h3 { color: var(--text-primary); }
+      h1 { font-size: clamp(2rem, 5vw, 2.75rem); text-align: center; margin-bottom: 0.5rem; color: var(--accent-color); }
+      h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 2rem; }
+      p, ul, ol { margin-bottom: 1rem; }
+      ul, ol { padding-left: 1.5rem; }
+
+      /* Header */
+      .page-header {
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 0;
+      }
+      .page-header .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+
+      /* Hero Section */
+      .hero { text-align: center; padding: 3rem 0; }
+      .hero .tagline { font-size: 1.25rem; color: var(--text-secondary); max-width: 65ch; margin: 0 auto 1.5rem auto; }
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background-color: var(--accent-color);
+        color: white;
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-decoration: none; }
+
+      /* Game Container */
+      .game-section { padding-top: 2rem; }
+      .game-container {
+        width: 100%;
+        background-color: #000;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        position: relative;
+        aspect-ratio: 785 / 500; /* Native aspect ratio */
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      #play-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+      #play-overlay:hover { background-color: rgba(0, 0, 0, 0.6); }
+      #play-overlay.hidden { opacity: 0; pointer-events: none; }
+      #play-overlay .play-icon { width: 80px; height: 80px; background-color: var(--accent-color); border-radius: 50%; display:flex; justify-content:center; align-items:center;}
+      #play-overlay .play-icon svg { width: 40px; height: 40px; color: white; margin-left: 5px;}
+      #play-overlay p { color: white; font-size: 1.25rem; margin-top: 1rem; font-weight: 600; }
+      #fullscreen-btn {
+        display: none; /* Hidden by default, shown on mobile */
+        position: absolute;
+        bottom: 10px; right: 10px; width: 40px; height: 40px;
+        background: rgba(0,0,0,0.5); color: white; border: none;
+        border-radius: 50%; cursor: pointer; padding: 8px; z-index: 20;
+      }
+
+      /* Content Sections */
+      .content-section { margin-top: 3rem; background: var(--bg-secondary); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); }
+      .content-section h2:first-child { margin-top: 0; }
+      
+      /* FAQ */
+      details { background: var(--bg-primary); border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);}
+      summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; cursor: pointer; font-weight: 600; }
+      summary::after { content: '+'; font-size: 1.5rem; color: var(--accent-color); transition: transform 0.2s ease; }
+      details[open] summary::after { transform: rotate(45deg); }
+      .faq-answer { padding: 0 1.5rem 1rem; }
+
+      /* Testimonials */
+      .testimonials-section { text-align: center; }
+      .testimonials-section h2 { border: none; }
+      .testimonials-section > p { max-width: 65ch; margin: 0 auto 2.5rem auto; color: var(--text-secondary); }
+      .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left; }
+      .testimonial-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+      .testimonial-card .stars { color: #f39c12; margin-bottom: 1rem; }
+      .testimonial-card blockquote { margin: 0 0 1rem 0; font-style: italic; }
+      
+      /* Share Section */
+      .share-section h3 { margin-bottom: 1rem; font-size: 1.25rem; text-align: center; }
+      .share-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+      .share-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 6px; color: white; font-weight: 600; }
+      .share-btn svg { width: 20px; height: 20px; }
+      .share-btn.twitter { background-color: #1DA1F2; }
+      .share-btn.facebook { background-color: #1877F2; }
+      .share-btn.reddit { background-color: #FF4500; }
+
+      /* Footer */
+      .page-footer { padding: 2rem 0; margin-top: 3rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+      
+      /* Utilities */
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+      @media (max-width: 768px) {
+        body { font-size: 15px; }
+        .wrapper { padding: 0 1rem; }
+        .fullscreen-btn { display: block; } /* Show on mobile */
+      }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="wrapper">
+            <a href="/" class="logo">onechance.games</a>
+        </div>
+    </header>
+
+    <main class="wrapper">
+        
+        <section class="hero">
+            <h1 id="game-title">One Chance Game</h1>
+            <p class="tagline">The critically acclaimed classic, preserved. Make the only decision that counts before time runs out.</p>
+            <a href="#play" class="btn">Play Now</a>
+        </section>
+
+        <section id="play" class="game-section" aria-labelledby="game-section-title">
+            <h2 id="game-section-title" class="sr-only">Game Window</h2>
+            <div class="game-container">
+                <div id="play-overlay">
+                    <div class="play-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+                    </div>
+                    <p>Click to Play</p>
+                </div>
+                <button id="fullscreen-btn" aria-label="Toggle Fullscreen">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="share-section">
+                <h3>Share This Experience</h3>
+                <div class="share-buttons">
+                  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fonechance.games%2F&text=I%27m%20playing%20One%20Chance%2C%20a%20game%20where%20every%20decision%20is%20final.%20What%20choices%20would%20you%20make%3F%20%23OneChanceGame" target="_blank" rel="noopener noreferrer" class="share-btn twitter" aria-label="Share on Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578 9.3 9.3 0 0 1-2.958 1.13 4.66 4.66 0 0 0-7.938 4.25 13.229 13.229 0 0 1-9.602-4.868c-.337.58-.53 1.25-.53 1.968a4.66 4.66 0 0 0 2.072 3.878 4.63 4.63 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568 4.69 4.69 0 0 1-2.104.08 4.66 4.66 0 0 0 4.352 3.234 9.348 9.348 0 0 1-5.786 1.995c-.376 0-.747-.022-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41z"></path></svg>
+                    <span>Twitter</span>
+                  </a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fonechance.games%2F" target="_blank" rel="noopener noreferrer" class="share-btn facebook" aria-label="Share on Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.14 9.5 5.32v2.14H6.1v4.13h3.4v8.2h4.2v-8.2h3.8l.6-4.13z"></path></svg>
+                    <span>Facebook</span>
+                  </a>
+                  <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fonechance.games%2F&title=One%20Chance%20Game%20-%20Play%20the%20Unforgettable%20Classic%20Online" target="_blank" rel="noopener noreferrer" class="share-btn reddit" aria-label="Share on Reddit">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.74c.69.02 1.34.11 1.93.27a.2.2 0 0 1 .15.24l-1.3 4.54c.46.2.82.46 1.1.78a.2.2 0 0 1-.02.28l-2.47 2.4c-.09.1-.24.03-.27-.09a5.1 5.1 0 0 1-.39-1.3 2.1 2.1 0 0 0-1.82-1.19c-.83 0-1.5.48-1.5 1.19 0 .39.21.73.53 1a1.2 1.2 0 0 0 .16.16l-1.15 1.1a.2.2 0 0 1-.28-.01c-1.79-1.39-3-3.26-3-5.38a5.1 5.1 0 0 1 5.1-5.11zM7.5 10.67a1.8 1.8 0 0 1 1.8-1.8 1.8 1.8 0 0 1 1.8 1.8 1.8 1.8 0 0 1-1.8 1.8 1.8 1.8 0 0 1-1.8-1.8zm4.5 4.07a1.8 1.8 0 0 1 1.8-1.8 1.8 1.8 0 0 1 1.8 1.8 1.8 1.8 0 0 1-1.8 1.8 1.8 1.8 0 0 1-1.8-1.8z"/></svg>
+                    <span>Reddit</span>
+                  </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="story-title">
+          <h2 id="story-title">The Story: 6 Days to Decide</h2>
+          <article>
+            <p>You are scientist John Pilgrim. You and your team have accidentally created a pathogen that is killing all living cells on Earth. You have six days to find a cure. Every day is a new chance to make a choice, but also one day closer to the end.</p>
+            <p>Your choices will affect the outcome of the story. You can spend time with your family, work in the lab, or explore the world. There is no right or wrong answer, only your answer. Will you find a cure and save the world? Or will you make peace with the inevitable? You only have one chance.</p>
+          </article>
+        </section>
+
+        <section class="content-section" aria-labelledby="how-to-play-title">
+          <h2 id="how-to-play-title">How to Play</h2>
+          <ol>
+            <li><strong>Movement:</strong> Use the <strong>Left and Right Arrow Keys</strong> to move.</li>
+            <li><strong>Interaction:</strong> Press the <strong>Spacebar</strong> or click to interact with objects and people.</li>
+            <li><strong>Choices:</strong> Make decisions by walking to characters or objects and interacting with them.</li>
+            <li><strong>The End:</strong> The game has multiple endings. Once the game ends, it's over for good. Your choices are permanent.</li>
+          </ol>
+        </section>
+        
+        <section class="content-section" aria-labelledby="faq-title">
+          <h2 id="faq-title">Frequently Asked Questions</h2>
+          <details>
+            <summary>Is this the real One Chance game?</summary>
+            <div class="faq-answer">
+              <p>Yes, this is the original Flash game by Dean Moynihan, made playable in modern browsers using the Ruffle emulator. The experience is preserved exactly as it was.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I really only play it once?</summary>
+            <div class="faq-answer">
+              <p>The game is designed to be played only once. This is a core part of the game's message. (Technically, you can clear your browser's cache to play again, but that's not the intended experience!)</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is the game free?</summary>
+            <div class="faq-answer">
+              <p>Yes, One Chance is completely free to play.</p>
+            </div>
+          </details>
+        </section>
+
+        <section class="content-section testimonials-section" aria-labelledby="testimonials-title">
+          <h2 id="testimonials-title">What Players Are Saying</h2>
+          <p>This game has touched millions. Here's what some of them had to say.</p>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>"I played this game years ago and it has stuck with me ever since. A powerful message delivered in a simple, effective way. A true masterpiece."</blockquote>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>"Just finished. I'm speechless. This is more than a game; it's a piece of art that makes you reflect on life, choices, and what truly matters."</blockquote>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>"Simple graphics, profound story. It proves you don't need a billion-dollar budget to create a deeply moving experience."</blockquote>
+            </div>
+          </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="wrapper">
+            <p>&copy; 2025 onechance.games. All Rights Reserved.</p>
+            <p><a href="/privacy" rel="noopener noreferrer">Privacy Policy</a></p>
+            <p>Last Updated: <time datetime="2025-07-28">July 28, 2025</time></p>
+        </div>
+    </footer>
+
+    <script src="/gameframe/ruffle.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const playOverlay = document.getElementById('play-overlay');
+        const container = document.querySelector('.game-container');
+        
+        function loadGame() {
+          // Hide the overlay
+          playOverlay.classList.add('hidden');
+          
+          // Initialize Ruffle
+          const ruffle = RufflePlayer.newest().createPlayer();
+          container.appendChild(ruffle);
+          
+          // Load the game
+          ruffle.load({
+            url: '/gameframe/one-chance.swf',
+            allowScriptAccess: true,
+            scale: 'showAll',
+            quality: 'high',
+            autoplay: 'on',
+            unmuteOverlay: 'hidden'
+          });
+        }
+        
+        playOverlay.addEventListener('click', loadGame);
+
+        // Fullscreen button logic
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        if (fullscreenBtn) {
+          fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+              container.requestFullscreen().catch(err => {
+                alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+              });
+            } else {
+              document.exitFullscreen();
+            }
+          });
+        }
+      });
+    </script>
+
+</body>
+</html> 
