@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# 站点地图位置
+Sitemap: https://onechance.games/sitemap.xml
+
+# 禁止访问的目录
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /node_modules/
+
+# 允许访问游戏文件
+Allow: /gameframe/
