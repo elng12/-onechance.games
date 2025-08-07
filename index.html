@@ -13,7 +13,6 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     
     <!-- 额外的SEO元标签 -->
-    <meta name="google-site-verification" content="">
     <meta name="theme-color" content="#28a745">
     
     <!-- Open Graph & Twitter Card -->
@@ -152,6 +151,11 @@
         aspect-ratio: 785 / 500; /* Native aspect ratio */
         overflow: hidden;
         margin-bottom: 2rem;
+      }
+      .game-container ruffle-player {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
       }
       #play-overlay {
         position: absolute;
@@ -350,16 +354,23 @@
           
           // Initialize Ruffle
           const ruffle = RufflePlayer.newest().createPlayer();
+          
+          // Set Ruffle to fill the container
+          ruffle.style.width = '100%';
+          ruffle.style.height = '100%';
+          ruffle.style.display = 'block';
+          
           container.appendChild(ruffle);
           
           // Load the game
           ruffle.load({
             url: '/gameframe/one-chance.swf',
             allowScriptAccess: true,
-            scale: 'showAll',
+            scale: 'noBorder',
             quality: 'high',
             autoplay: 'on',
-            unmuteOverlay: 'hidden'
+            unmuteOverlay: 'hidden',
+            wmode: 'direct'
           });
         }
         
